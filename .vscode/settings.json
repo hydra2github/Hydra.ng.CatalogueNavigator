@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/c9d71284-77a1-4228-8f58-a66c1e76e1db/resourceGroups/OcucoHubDev/providers/Microsoft.Web/sites/HydraCatNavigatorDev",
-    "appService.deploySubpath": ""
-}
