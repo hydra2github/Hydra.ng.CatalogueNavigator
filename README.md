@@ -2,14 +2,15 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://github.com/hydra2github)
 
-[![Release](https://img.shields.io/badge/Version-1.0-green.svg)]
-(https://github.com/hydra2github)
+[![Release](https://img.shields.io/badge/Version-1.0-green.svg)](https://github.com/hydra2github)
 [![Platform](https://img.shields.io/badge/platform-win--64-lightgrey.svg)](https://github.com/hydra2github)
+
 
 
 # Hydra.ng.CatalogueNavigator
 
-Hydra.ng.CatalogueNavigator, prototype presented at steering meeting 10-OCT-2018
+Hydra.ng.CatalogueNavigator, Angular prototype presented at steering meeting 10-OCT-2018
+<br>
 <br>
 
 <p align="center">
