@@ -1,29 +1,29 @@
 ![Hydra.ng.CatalogueNavigator](https://github.com/hydra2github/Ocuco.Hydra.Images/blob/master/Logos.and.images/Hydra.Hub.for.Git.frontend.png)
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://github.com/hydra2github)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://github.com/hydra2github)
 
-[![Release](https://img.shields.io/badge/Version-1.2-green.svg)](https://github.com/hydra2github)
+[![Release](https://img.shields.io/badge/Version-1.0-green.svg)]
+(https://github.com/hydra2github)
 [![Platform](https://img.shields.io/badge/platform-win--64-lightgrey.svg)](https://github.com/hydra2github)
 
-# Ocuco.Hydra.Prototype
+
+# Hydra.ng.CatalogueNavigator
 
 Hydra.ng.CatalogueNavigator, prototype presented at steering meeting 10-OCT-2018
 <br>
 
-<br>
-
 <p align="center">
-  <img alt="anigif" src="https://github.com/hydra2github/Ocuco.Hydra.Images/blob/master/AnimatedGifs/Ocuco.Hydra.Prototype.Video01.gif">
+  <img alt="anigif" src="https://github.com/hydra2github/Ocuco.Hydra.Images/blob/master/AnimatedGifs/Hydra.ng.CatalogueNavigator.Video01.gif">
 </p>
 
 
 Features
 ========
-* Landing page
-* Catalogue APIs
-* Luxottica RXO (Bludata) APIs
-* Luxottica RXO (Bludata) Audit APIs
-* Full RXO console
+* Access by subscription key
+* Catalogue selection
+* Brand selection
+* Product details (by brand)
+* Product images
 
 
 ## Getting Started
@@ -36,7 +36,8 @@ These instructions will get you a copy of the project up and running on your loc
 * Windows
 * Git
 * Web browser
-* Visual Studio 2017
+* Visual Code
+
 
 ### Installing
 
@@ -45,45 +46,47 @@ A step by step series of examples that tell you how to get a development env run
 Clone the Git repository 
 
 ```
-git clone https://github.com/hydra2github/Ocuco.Hydra.Prototype.git
+git clone https://github.com/hydra2github/Hydra.ng.CatalogueNavigator.git
 ```
 
 Open the solution and restore packages
 
-## Built With
 
-* [.NET Core 2.1](https://github.com/dotnet/core/) - The web framework used
+### Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+
+### Built With
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+
+* [Angular 6](https://github.com/dotnet/core/) - The web framework used
 * [Bootstrap 4.0](https://getbootstrap.com/) - Layout
 
+### Build
 
-## Release History
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-.NET Core/ASP.NET Core Web Application progression. 
 
-> ## v1.2
-> 
-> - Project structure
->     * Ocuco.Hydra.WebMVC21.V2 - Completed prototype
-> - Removed
->     * Ocuco.Hydra.WebMVC - (.NET Core 2.0)
->     * Ocuco.Hydra.WebMVC21 - (.NET Core 2.1)
+### Running unit tests
 
-> ## v1.1
-> 
-> - Project structure
->     * Ocuco.Hydra.WebMVC - (.NET Core 2.0)
->     * Ocuco.Hydra.WebMVC21 - (.NET Core 2.1)
->     * Ocuco.Hydra.WebMVC21.V2 - (.NET Core 2.1 + ASP.NET Core Identity)
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+
+### Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+
+### Release History
 
 > ## v1.0
 > 
 > - Created
 >     * Ocuco.Hydra.WebMVC - (.NET Core 2.0)
 
-> Note: Based on a PluralSight course : Building a Web App with ASP.NET Core, MVC, Entity Framework Core, Bootstrap, and Angular by Shawn Wildermuth
 
 ## Authors
 
 * **Daniel Tassi** - *Initial work*
-* **Alessandro Mazzocchi** - *PM*
-* **Angelo Furlotti** - *Catalogue model*
