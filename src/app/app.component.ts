@@ -1,6 +1,12 @@
+// Angular core
 import { Component, OnDestroy } from '@angular/core';
+import { Router } from "@angular/router";
+
 import { Subscription } from 'rxjs';
+
 import { MenubarModule, MenuItem } from 'primeng/primeng';
+import { DropdownModule } from 'primeng/dropdown';
+
 import { SharedService } from './service/shared.service';
 
 @Component({
@@ -17,7 +23,8 @@ export class AppComponent implements OnDestroy {
 
   title = 'Hydra catalogue navigator';
 
-  constructor(private sharedService: SharedService) {
+  constructor( private sharedService: SharedService
+              ,private router: Router) {
     
     // subscribe to home component messages
     //this.subscription = this.sharedService.getMessage()
@@ -27,6 +34,7 @@ export class AppComponent implements OnDestroy {
     
     this.subscription = this.sharedService.getLoginStatus()
     .subscribe(message => {
+      //this.isLoggedIn = message.valueOf();
       this.isLoggedIn = message;
     });
   }
@@ -38,13 +46,16 @@ export class AppComponent implements OnDestroy {
           icon: 'pi pi-fw pi-file',
           items: [
             {
+              label: 'Catalogs',
+              icon: 'fa fa-list',
+              command: (event) => { this.redirectCatalogSelection() }
+            },
+            {
               label: 'Logout',
-              icon: 'fa fa-sign-out'
+              icon: 'fa fa-sign-out',
+              command: (event) => { this.redirectLogout() }
             }
           ]
-      },
-      {
-          label: 'Quit', icon: 'pi pi-fw pi-times'
       }
     ];
   }
@@ -52,6 +63,18 @@ export class AppComponent implements OnDestroy {
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
+  }
+
+
+
+  redirectCatalogSelection() {
+    this.router.navigate(['catalogue-list']);
+  }
+
+
+  redirectLogout() {
+    this.sharedService.setLoginStatus(false);
+    this.router.navigate(['login']);
   }
 
 }

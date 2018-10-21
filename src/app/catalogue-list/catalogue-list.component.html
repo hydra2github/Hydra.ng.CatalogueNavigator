@@ -1,6 +1,4 @@
-<h1>
-    Catalogues
-</h1>
+<h2>Your catalogues</h2>
 
 
 <div class="container">
@@ -51,48 +49,37 @@
                 </div>            
         </div>
         <div class="col">
+            <div class="card">
+                <pre>{{active | json}}</pre>
+            </div>
             
-            <pre>{{active | json}}</pre>
-
-
-
             <div class="card bg-dark text-white mb-3">
-                    <!--edit / add form-->
-                    <form novalidate
-                          (submit)="save(f)"
-                          #f="ngForm"
-                          class="card-body">
-                   
-                          <!--
+                <!--edit / add form-->
+                <form novalidate
+                      (submit)="save(f)"
+                      #f="ngForm"
+                      class="card-body">
+                      
+                      <!---->
                       <input type="text"
-                             [ngModel]="active?.label"
-                             name="label"
+                             [ngModel]="active?.catalogueName"
+                             name="catalogueName"
                              required
                              class="form-control bg-dark text-white"
-                             placeholder="Phone model *"
+                             placeholder="Catalogue name *"
                              >
-                             -->
-                   
+                      
                       <div class="btn-group btn-group-sm m-1">
-                          <!--
-                        <button class="btn btn-warning"
-                                type="submit"
-                                [disabled]="f.invalid">
-                          {{active?.id ? 'SAVE' : 'ADD'}}
-                        </button>
--->
+                          <!--<button class="btn btn-warning" type="submit" [disabled]="f.invalid">{{active?.id ? 'SAVE' : 'ADD'}}</button>-->
+                          
+                          <!--<button class="btn btn-light" type="button" *ngIf="active?.id" (click)="reset()">Details</button>-->
 
-                        <button
-                            class="btn btn-light"
-                            type="button"
-                            *ngIf="active?.id"
-                            (click)="reset()">
-                          ADD NEW
-                        </button>
+                          <button class="btn btn-light" type="button" *ngIf="active?.id" (click)="gotoDetail(active?.id)">Details</button>
 
-                      </div>
+                          
+                        </div>
                     </form>
-                  </div>
+                </div>
 
 
 

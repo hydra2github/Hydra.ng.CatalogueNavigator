@@ -1,0 +1,126 @@
+<div class="container">
+  
+  <div class="row">
+    <div class="col">
+      <h3 class="first">Product manupulation</h3>
+      <hr>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col">
+      <p-dropdown [options]="brandList" 
+                  [(ngModel)]="selectedBrand" 
+                  placeholder="Select a Brand" 
+                  optionLabel="label" 
+                  [showClear]="true"
+                  (onChange)="onBrandSelect($event)"></p-dropdown>
+      <p>Selected Brand: {{selectedBrand ? selectedBrand.label : 'none'}}</p>
+      <hr>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col">
+      <!--optionLabel="label"  -->
+      <p-listbox [options]="listboxProducts" 
+                 [(ngModel)]="selectedProduct" 
+                 filter="filter"
+                 checkbox="checkbox"
+                 [style]="{'width':'450px', 'font-size': '0.8em'}"
+                 [listStyle]="{'max-height':'500px'}"
+                 (onChange)="onProductSelect($event)"
+                 >
+        <p-header>
+          <i class="fa fa-eye"></i>Products
+        </p-header>
+        <ng-template let-prd let-i="index" pTemplate="item">
+          <div class="ui-helper-clearfix">
+            <span style="float:left;margin:20px 10px 0 0">{{prd.label}}</span>
+            <img src="assets/application/glasses.png" style="display:inline-block;margin:5px 0 0 5px" width="48">
+          </div>
+        </ng-template>
+        <p-footer>
+          Selected: {{selectedProduct||'none'}}
+        </p-footer>
+      </p-listbox>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+            <pre>Product : {{selectedProduct | json}}</pre>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+              <img src="{{theProduct.azureImage || 'assets/application/glasses.png'}}" style="display:inline-block;margin:5px 0 0 5px" width="500">
+          </li>
+          <li class="list-group-item">Barcode (UPC) : {{theProduct.upc}}</li>
+          <!--
+          <li class="list-group-item">Vestibulum at eros</li>
+          -->
+        </ul>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+        <pre>{{theProduct | json}}</pre>
+    </div>
+  </div>
+
+
+
+<!--
+<hr>
+
+<li *ngFor="let product of produtsByCatalogue" (click)="onSelectProduct(product)"></li>
+-->
+
+<!--
+<h3>Content</h3>
+<p-listbox [options]="cars" [(ngModel)]="selectedCar"}" [listStyle]="{'max-height':'250px'}">
+  <ng-template let-car pTemplate="item">
+    <div class="ui-helper-clearfix">
+      <img src="assets/showcase/images/demo/car/{{car.label}}.png" style="display:inline-block;margin:5px 0 0 5px" width="48">
+      <span style="float:right;margin:20px 10px 0 0">{{car.value}}</span>
+    </div>
+  </ng-template>
+  <p-footer>
+    Selected: {{selectedCar||'none'}}
+  </p-footer>
+</p-listbox>
+-->
+
+<!--
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <li *ngFor="let product of produtsByCatalogue">
+    <span class="badge">{{product.articleName}}</span> {{product.articleName}}
+  </li>
+</ul>
+
+
+<ul class="heroes">
+    <li *ngFor="let product of produtsByCatalogue"
+      [class.selected]="ProductVM === selectedProduct"
+      (click)="onSelect(herProductVMo)">
+      <span class="badge">{{product.articleName}}</span> {{product.articleName}}
+    </li>
+  </ul>
+
+  <div *ngIf="selectedProduct">
+ 
+      <h2>{{selectedProduct.articleName | uppercase}} Details</h2>
+      <div><span>id: </span>{{selectedProduct.id}}</div>
+      <div>
+        <label>name:
+          <input [(ngModel)]="selectedProduct.articleName" placeholder="name">
+        </label>
+      </div>
+     
+    </div>
+    -->

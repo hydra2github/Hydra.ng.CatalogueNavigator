@@ -9,13 +9,16 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from "./core/app.routing.module";
 
 // PrimeNG
-import {MenubarModule} from 'primeng/menubar';
-import {ButtonModule} from 'primeng/button';
+import { MenubarModule } from 'primeng/menubar';
+import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
+import { ListboxModule } from 'primeng/listbox';
 
-// Application
+// Application components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CatalogueListComponent } from './catalogue-list/catalogue-list.component';
+import { ProdbybrandListComponent } from './prodbybrand-list/prodbybrand-list.component';
 
 // Services
 import { AuthenticationService } from "./service/auth.service";
@@ -23,15 +26,17 @@ import { CatalogueApiService } from "./service/catalogue-api.service";
 import { SharedService } from "./service/shared.service";
 import { UserService } from "./service/user.service";
 
-//import { AddUserComponent } from './add-user/add-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 //import { EditUserComponent } from './edit-user/edit-user.component';
-//import {ListUserComponent} from "./list-user/list-user.component";
+
 
 @NgModule({
   declarations: [
-    AppComponent
-    ,LoginComponent
-    ,CatalogueListComponent
+      AppComponent
+    , LoginComponent
+    , CatalogueListComponent
+    , ProdbybrandListComponent
     //,ListUserComponent
     //,AddUserComponent
     //,EditUserComponent
@@ -44,6 +49,9 @@ import { UserService } from "./service/user.service";
     ,FormsModule
     ,MenubarModule
     ,ButtonModule
+    ,DropdownModule
+    ,BrowserAnimationsModule
+    ,ListboxModule
   ],
   providers: [
      AuthenticationService

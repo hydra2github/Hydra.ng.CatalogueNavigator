@@ -1,10 +1,16 @@
+// Angular core
 import { Component, OnInit } from '@angular/core';
-import { CatalogueApiService } from  '../service/catalogue-api.service';
 import { NgForm } from '@angular/forms';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 
-import { CatalogueVM } from '../model/cataloguevm.model';
+// Services
+import { CatalogueApiService } from  '../service/catalogue-api.service';
 import { SharedService } from '../service/shared.service';
+
+// ViewModels
+import { CatalogueVM } from '../model/cataloguevm.model';
+
+
 
 const INITIAL_STATE = { catalogueName: null, manufacturer: null };
 
@@ -15,36 +21,44 @@ const INITIAL_STATE = { catalogueName: null, manufacturer: null };
 })
 export class CatalogueListComponent implements OnInit {
 
+  // Variables
+  public isUserLogged: boolean;
+  public custId: number;
   public catalogues: Array<object> = [];
 
-  public isUserLogged: boolean;
-
+  // ...for ViewModels  
   allcatalogues: CatalogueVM[];
-  active: CatalogueVM = {};
+  active: CatalogueVM = {};  
 
   constructor( private apiService: CatalogueApiService
               ,private sharedService: SharedService
-              ,private router: Router) { }
+              ,private router: Router
+             ) { }
 
   ngOnInit() {
     
     this.isUserLogged = this.sharedService.userState.getValue();
+
     if (!this.isUserLogged === true) {
       this.router.navigate(['login']);
       return;
     }
-    this.getCatalogues();
+
+    this.custId = this.sharedService.getCustomerID();
+
+    this.getCatalogues(this.custId);
   }
 
   // do HTTP call and retrieve Catalogue list 
 
-  public  getCatalogues(){
-    this.apiService.getCatalogues().subscribe((data: Array<object>) => {
+  public getCatalogues(custId: number){
+
+    this.apiService.getCataloguesById(custId).subscribe((data: Array<object>) => {
       this.catalogues = data;
       console.log(data);
     });    
-    this.apiService.getCatalogues2()
-    .subscribe(result => this.allcatalogues = result);
+
+    this.apiService.getCataloguesViewModelById(custId).subscribe(result => this.allcatalogues = result);
   }
 
   //
@@ -69,5 +83,14 @@ export class CatalogueListComponent implements OnInit {
   reset() {
     this.active = INITIAL_STATE;
   }
+
+  gotoDetail(selectedCatalogue: number) {
+    this.sharedService.applicationObject.catalogueId = selectedCatalogue;
+    this.router.navigate(['prodbybrand-list']);
+  }
+
+
+  
+
 
 }

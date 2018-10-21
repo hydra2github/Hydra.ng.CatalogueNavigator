@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {LoginComponent} from "../login/login.component";
+import { LoginComponent } from "../login/login.component";
 import { CatalogueListComponent } from '../catalogue-list/catalogue-list.component';
+import { ProdbybrandListComponent } from '../prodbybrand-list/prodbybrand-list.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,10 @@ const routes: Routes = [
     path:  'catalogue-list',
     component:  CatalogueListComponent
   }
+  ,{
+    path:  'prodbybrand-list',
+    component:  ProdbybrandListComponent
+  }  
   ,{path : '', component : LoginComponent}
 ];
 
@@ -23,10 +28,10 @@ export class AppRoutingModule { }
 
 
 
-//import { RouterModule, Routes } from '@angular/router';
 
-//import {AddUserComponent} from "../add-user/add-user.component";
-//import {ListUserComponent} from "../list-user/list-user.component";
+
+
+
 //import {EditUserComponent} from "../edit-user/edit-user.component";
 
 //const routes: Routes = [
