@@ -62,7 +62,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-* [Angular 6](https://github.com/dotnet/core/) - The web framework used
+* [Angular 6](https://angular.io/) - The web framework used
 * [Bootstrap 4.0](https://getbootstrap.com/) - Layout
 
 ### Build
